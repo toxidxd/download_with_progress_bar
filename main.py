@@ -6,7 +6,7 @@ def download_files(url: str, filename: str):
     with open(filename, 'wb') as f:
         with requests.get(url, stream=True) as r:
             r.raise_for_status()
-
+            print(r.headers)
             total = int(r.headers.get('Content-Length'))
 
             tqdm_params = {
@@ -25,7 +25,7 @@ def download_files(url: str, filename: str):
 
 
 def main():
-    url = 'https://github.com/toxidxd/face_detection/archive/refs/heads/main.zip'
+    url = 'https://site.site/file.ext'
     filename = url.split('/')[-1]
     download_files(url, filename)
 
