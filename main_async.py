@@ -29,22 +29,11 @@ async def main():
 
     loop = asyncio.get_running_loop()
 
-    # urls = [
-    #     'https://github.com/toxidxd/face_detection/archive/refs/heads/main.zip',
-    #     'https://github.com/toxidxd/sb_module9_toixdxd/archive/refs/heads/main.zip',
-    #     'https://github.com/toxidxd/eve_fw_profit/archive/refs/heads/master.zip',
-    #     'https://github.com/toxidxd/sb_python_messenger/archive/refs/heads/main.zip',
-    #     'https://github.com/toxidxd/sb_MyProfile_project_toxidxd/archive/refs/heads/main.zip',
-    #     'https://github.com/toxidxd/py_learn/archive/refs/heads/main.zip'
-    # ]
-
     urls = [
-        # ('https://github.com/toxidxd/face_detection/archive/refs/heads/main.zip', '50MB.zip'),
-        # ('https://github.com/toxidxd/py_learn/archive/refs/heads/main.zip', '200MB.zip'),
-        ('https://github.com/toxidxd/sb_python_messenger/archive/refs/heads/main.zip', '20MB.zip'),
+        ('https://file.zip', '1.zip'),
+        ('https://file.zip', '2.zip'),
     ]
 
-    # tasks = [loop.create_task(download_files(url=url, filename=url.split('/')[-1])) for url in urls]
     tasks = [loop.create_task(download_files(url, filename)) for url, filename in urls]
     await asyncio.gather(*tasks, return_exceptions=True)
 
